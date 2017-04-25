@@ -1,7 +1,6 @@
 package io.weichao.ar_poi.util;
 
 public class LowPassFilter {
-
     private static final float ALPHA_DEFAULT = 0.333f;
     private static final float ALPHA_STEADY = 0.001f;
     private static final float ALPHA_START_MOVING = 0.6f;
@@ -26,7 +25,7 @@ public class LowPassFilter {
         return previous;
     }
 
-    private static final float computeAlpha(float low, float high, float[] current, float[] previous) {
+    private static float computeAlpha(float low, float high, float[] current, float[] previous) {
         if (previous.length != 3 || current.length != 3) {
             return ALPHA_DEFAULT;
         }

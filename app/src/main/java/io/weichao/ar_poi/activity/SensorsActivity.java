@@ -199,10 +199,13 @@ public class SensorsActivity extends Activity implements SensorEventListener, Lo
 
     @Override
     public void onLocationChanged(Location location) {
-        Log.d("aaaaaaaa", location.getLatitude() + "    " + location.getLongitude());
+        Log.d(TAG, "真经纬度：" + location.getLatitude() + "    " + location.getLongitude());
+
         // TODO 假经纬度
         location.setLatitude(39.96647);
         location.setLongitude(116.325837);
+        Log.d(TAG, "使用假经纬度：" + location.getLatitude() + "    " + location.getLongitude());
+
         ARData.setCurrentLocation(location);
         gmf = new GeomagneticField((float) ARData.getCurrentLocation().getLatitude(), (float) ARData.getCurrentLocation().getLongitude(), (float) ARData.getCurrentLocation().getAltitude(), System.currentTimeMillis());
 
